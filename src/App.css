@@ -22,6 +22,36 @@
   font-size: large;
 }
 
+.main-auth-container{
+  background-image: linear-gradient(99deg,#ff70a6,#ff9770 40%,#ffd670 73%,#e9ff70);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.auth-box{
+  background-image: linear-gradient(97deg,#ff7a6e,#ffd670);
+  box-shadow: 0 14px 28px 0 rgba(0,0,0,.25), 0 10px 10px 0 rgba(0,0,0,.26);
+  border-radius: 8px;
+  width: 35vw;
+  height: 55vh;
+  justify-content: space-around;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-logo{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
