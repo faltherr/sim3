@@ -25,6 +25,11 @@ massive(process.env.CONNECTION_STRING).then(db => {
   app.post('/api/auth/register', Ctrl.createUser)
   // app.get('/api/auth/user', Ctrl.)
 
+
+  app.get('api/posts/:userid/', Ctrl.getPosts )
+
+  app.get('/api/post/:postid')
+
   app.listen(port, () => {
     console.log('listening on port:', port)
   })

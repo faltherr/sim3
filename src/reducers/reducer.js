@@ -1,18 +1,23 @@
 import axios from 'axios'
 
+
 //Setup for initial state
 const initialState = {
     data:[],
     username: '',
     password: '',
     profile_picture : "",
-    redirect: false
+    redirect: false,
+    posts: [],
+    userposts: true
 }
 
 //String constants
 const USER_INPUT = "USER_INPUT"
 const USER_PASSWORD = "USER_PASSWORD"
 const REG_USER = "REG_USER"
+// const SEARCH_TERM = "SEARCH_TERM"
+const FETCH_POSTS = "FETCH_POSTS"
 // const REG_USER_FULFILLED = "REG_USER_FULFILLED"
 
 
@@ -59,6 +64,14 @@ export function registerUser (username, password) {
 //     }
 // }
 
+export function fetchPosts(userid, title, userposts){
+    const url = `/api/posts/:${userid}&${title}&${userposts}`
+    const request = axios.get(url)
+    return{
+        type: FETCH_POSTS,
+        payload: request
+    }
+}
 
 
 export default function reducer(state = initialState, action) {
@@ -69,7 +82,8 @@ export default function reducer(state = initialState, action) {
             return { ...state, password: action.payload }
         case REG_USER:
             return {...state, data: action.payload.data, redirect: true}
-
+        case FETCH_POSTS:
+            return {...state, posts:action.payload.data}
 
         default:
             return state;
